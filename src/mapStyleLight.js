@@ -1,4 +1,4 @@
-export default [
+const mapStyleLight = [
     {
         "featureType": "administrative.country",
         "elementType": "labels",
@@ -219,3 +219,5 @@ export default [
         ]
     }
 ]
+
+export default mapStyleLight;

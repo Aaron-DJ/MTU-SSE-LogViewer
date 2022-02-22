@@ -120,9 +120,9 @@ class FileSelect extends React.Component {
         return (
             <div className='fileUploadBox'>
                 <input type="file" className="fileUpload" accept=".csv" onChange={this.changeHandler} />
-                {Object.entries(this.state.logs).map((log) => {
+                {Object.entries(this.state.logs).map((log) => (
                     <div key={log}>{log}</div>
-                })}                
+                ))}                
                 <button className='fileUploadBtn' onClick={this.handleSubmission}>Load</button>
             </div>
         );
