@@ -7,6 +7,275 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: chartreuse;
+  -webkit-text-stroke: 1px black;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
+
+#sideMenu {
+  position: fixed;
+  background: whitesmoke;
+  z-index: 10;
+  bottom: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  max-width: 25%;
+  height: 100%;
+  transform: translate(-100%, 0);
+  transition: transform .3s cubic-bezier(0.2, .7, .44, 1.00);
+}
+
+#sideMenu.show {
+  transform: translate(0, 0);
+}
+
+#sideMenu.hide {
+  transform: translate(-100%, 0);
+}
+
+.dataEntryText {
+  margin: 0.5rem;
+}
+
+#settingHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menuBtn {
+  position: absolute;
+  padding: 0px;
+  left: 10px;
+  top: 1rem;
+  z-index: 5;
+  height: 50px;
+  width: 50px;
+  color: #2cff4f;
+  transition: all .2s cubic-bezier(0.2, .7, .44, 1.00);
+}
+
+#menuBtn:hover {
+  cursor: pointer;
+}
+
+#menuBtn.show {
+  transform: rotate(90deg);
+}
+
+#menuBtn.hide {
+  transform: rotate(0);
+}
+
+.menuText {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  font-size: 20pt;
+  transition: all .1s;
+}
+
+.menuText:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menuText::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(118, 255, 105);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.menuText:hover::after,
+.menuText:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2rem, 0);
+}
+
+.menuText::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.menuText:hover::after,
+.menuText:focus::after {
+  transform: scale(1);
+}
+
+.fileUpload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.fileUpload {
+  content: "Select a log file";
+  background-color: #76ff8d;
+  border: 1px solid #727272;
+  border-radius: 10px 0px 0px 10px;
+  height: 30px;
+  width: 234px;
+  padding: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+}
+
+.fileUpload:hover {
+  border-color: black;
+  background-color: #2cff4f;
+}
+
+.fileUploadBtn {
+  background-color: #4d4d4d;
+  border-radius: 0px 10px 10px 0px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  padding: 5px 8px;
+  text-align: center;
+  height: 32px;
+  width: 64px;
+  vertical-align: middle;
+  border: 0;
+  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+}
+
+.fileUploadBtn:hover {
+  background-color: #353535;
+}
+
+.fileUploadBtn:active {
+  position: relative;
+  transform: scale(1.066);
+}
+
+.fileUpload:active {
+  position: relative;
+  transform: scale(1.02);
+}
+
+.fileUploadBox {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  top: 1rem;
+  z-index: 10;
+  padding: 10px 10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+}
+
+#dataViewerBox {
+  position: fixed;
+  background: #f5f5f5;
+  z-index: 10;
+  bottom: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  height: 325px;
+  border-radius: 12px 12px 0px 0px;
+  transform: translate(0, 300px);
+  transition: transform .3s cubic-bezier(0.2, .7, .44, 1.00);
+}
+
+#dataViewerBox.show {
+  transform: translate(0px, 0px);
+}
+
+#dataViewerBox.hide {
+  transform: translate(0px, 300px);
+  overflow: hidden;
+}
+
+#dataDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+#textDiv {
+  background-color: #b1b1b1;
+  margin: 8px;
+  border-radius: 5px;
+  width: 50%;
+}
+
+#dataHeaders {
+  display: flex;
+  flex-direction: row;
+}
+
+#dataDisplayBox {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+}
+
+.dataDisplayText {
+  padding: 5%;
+  margin-right: 5%;
+  min-width: 100%;
+}
+
+#chartDiv {
+  width: 50%;
+}
+
+#smallBtn {
+  display: absolute;
+  top: 25px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid rgb(167, 167, 167);
+  border-radius: 5px;
+  max-width: 125px;
+  z-index: 20;
+}
+
+#largeBtn {
+  position: absolute;
+  top: 0;
+  margin: 3px;
+  width: 97%;
+  border: 10px solid rgba(245, 245, 245, 0);
+  border-radius: 10px;
+  z-index: 15;
+}
+
+#smallBtn:hover {
+  border-color: rgb(119, 119, 119);
+  cursor: pointer;
+}
+
+#largeBtn:hover {
+  border-color: rgba(155, 155, 155, 0.315);
+  cursor: pointer;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
