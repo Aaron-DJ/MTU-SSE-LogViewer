@@ -230,13 +230,6 @@ h1 {
 #dataDisplayBox {
   display: flex;
   flex-direction: row;
-  min-width: 100%;
-}
-
-.dataDisplayText {
-  padding: 5%;
-  margin-right: 5%;
-  min-width: 100%;
 }
 
 #chartDiv {

@@ -36,7 +36,6 @@ class FileSelect extends React.Component {
     
 
     changeHandler = (event) => {
-        console.log(event.target.files[0]);
         this.setState({
             isFilePicked: true,
             selectedFile: event.target.files[0]
