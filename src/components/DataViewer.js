@@ -104,7 +104,7 @@ export default class DataViewer extends React.Component {
         },
         axisX:{
             title: "Time (mm:ss)",
-            valueFormatString: "mm:ss.fff"
+            valueFormatString: "mm:ss"
         },
         axisY:{
             title: "Speed (MPH)"
@@ -123,7 +123,7 @@ export default class DataViewer extends React.Component {
             name: "Speed",
             showInLegend: true,
             legendText: "Speed",
-            xValueFormatString:"'Time': mm:ss.fff",
+            xValueFormatString:"'Time': mm:ss",
             yValueFormatString:"## mph",
             dataPoints: 
                 this.props.markers.map((marker) => 
@@ -180,17 +180,17 @@ export default class DataViewer extends React.Component {
                     </div>
                     <div style={{padding: "0 0 0 5%"}}>
                         {avgData ? Object.entries(avgData).map(entry => 
-                            (<div key={Math.random()} className='dataDisplayText'>{entry[1]}</div>))
+                            (<div key={Math.random()} className='dataDisplayText'>{entry[1].toFixed(1)}</div>))
                             : null}
                     </div>
                     <div style={{margin: "auto"}}>
                         {minData ? Object.entries(minData).map(entry => 
-                            (<div key={Math.random()} className='dataDisplayText'>{entry[1]}</div>))
+                            (<div key={Math.random()} className='dataDisplayText'>{entry[1].toFixed(1)}</div>))
                             : null}
                     </div>
                     <div style={{padding: "0 20% 0 0"}}>
                         {maxData ? Object.entries(maxData).map(entry => 
-                            (<div key={Math.random()} className='dataDisplayText'>{entry[1]}</div>))
+                            (<div key={Math.random()} className='dataDisplayText'>{entry[1].toFixed(1)}</div>))
                             : null}
                     </div>
                 </div>
