@@ -68,7 +68,7 @@ function App() {
   // Converts a speed value to a hex color value
   const mapColor = (speed, min, max) => {
 
-    let colorScale = Math.round((speed - min) * (510) / (max - min));
+    let colorScale = Math.round((speed - min) * (510) / (max - min) + min);
     let r = 0;
     let g = 0;
 
