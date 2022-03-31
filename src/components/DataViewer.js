@@ -177,6 +177,8 @@ export default class DataViewer extends React.Component {
                         {avgData ? Object.entries(avgData).map(entry => 
                             (<div key={Math.random()} className='dataDisplayText'>{entry[0]}:</div>))
                             : null}
+                        <div className='dataDisplayText'>Elapsed time:</div>
+                        <div className='dataDisplayText'>Distance:</div>
                     </div>
                     <div style={{padding: "0 0 0 5%"}}>
                         {avgData ? Object.entries(avgData).map(entry => 

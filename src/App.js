@@ -65,6 +65,31 @@ function App() {
   // Handle map stuff
   const [selectedMarker, setSelectedMarker] = useState(null);
 
+  // Converts a speed value to a hex color value
+  const mapColor = (speed, min, max) => {
+
+    let colorScale = Math.round((speed - min) * (510) / (max - min));
+    let r = 0;
+    let g = 0;
+
+    if(colorScale > 510) {
+      colorScale = 510;
+    }
+
+    if(colorScale <= 255) {
+      r = colorScale;
+      g = 255;
+    } else {
+      r = 255;
+      g = 255 - (colorScale - 255);
+    }
+
+    let rString = r.toString(16).length > 1 ? r.toString(16) : "0" + r.toString(16);
+    let gString = g.toString(16).length > 1 ? g.toString(16) : "0" + g.toString(16);
+
+    return "#" + rString + gString + "34";
+  }
+
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
@@ -102,10 +127,14 @@ function App() {
             key={new Date(point.Date_Time).toISOString()} 
             position={{lat: Number(point.Latitude), lng: Number(point.Longitude)}}
             icon={{
-              url: "/dotMarker.png",
-              scaledSize: new window.google.maps.Size(20,20),
-              origin: new window.google.maps.Point(0,0),
-              anchor: new window.google.maps.Point(10,10),
+              // url: "/dotMarker.png",
+              // scaledSize: new window.google.maps.Size(20,20),
+              // origin: new window.google.maps.Point(0,0),
+              // anchor: new window.google.maps.Point(10,10),
+              path: window.google.maps.SymbolPath.CIRCLE, //Temp testing for a circle...
+              fillColor: mapColor(point.Speed, 0, 40), // Change with speed at location map from rgb(0, 255, 0) to rgb(255, 0, 0)
+              strokeColor: mapColor(point.Speed, 0, 40),
+              scale: 4
             }}
             onClick={() => {
               setSelectedMarker(point);
